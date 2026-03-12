@@ -1,33 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import BemVindo from './components/BemVindo'
+import SecaoHabitos from './components/SecaoHabitos'
+import HabitList from './components/HabitList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const habits = [
+    { id: 1, titulo: 'Exercício',  meta: 5, ativo: true,  diasFeitos: 5 },
+    { id: 2, titulo: 'Leitura',    meta: 7, ativo: true,  diasFeitos: 3 },
+    { id: 3, titulo: 'Meditação',  meta: 7, ativo: false, diasFeitos: 0 },
+    { id: 4, titulo: 'Hidratação', meta: 7, ativo: true,  diasFeitos: 6 },
+  ]
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <main>
+        <BemVindo />
+        <SecaoHabitos titulo="Meus Hábitos">
+          <HabitList habits={habits} />
+        </SecaoHabitos>
+      </main>
+      <Footer />
     </>
   )
 }
