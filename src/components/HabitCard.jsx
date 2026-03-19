@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
 import habitoIcon from '../assets/habitos.png'
 import mauHabitoIcon from '../assets/mau-habito.png'
 
 function HabitCard({
+  id,
   nome,
   descricao = '',
   categoria = 'Geral',
@@ -41,6 +43,9 @@ function HabitCard({
       <small>Logs: {logs.length}</small>
 
       <div className="buttonFlex">
+        <Link to={`/habito/${id}`} className="btn-detalhes">
+          Ver detalhes
+        </Link>
         {onRegistrarDia && (
           <button type="button" onClick={onRegistrarDia}>
             Registrar dia

@@ -1,3 +1,4 @@
+// src/pages/PaginaDetalhes.jsx
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useHabits } from '../contexts/HabitsContext'
